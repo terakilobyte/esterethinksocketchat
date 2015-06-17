@@ -1,4 +1,5 @@
 import messages from '../client/messages';
+import chatMessages from './chats';
 
 const initialLocale = 'en';
 
@@ -12,6 +13,9 @@ export default {
     formats: {},
     locales: initialLocale,
     messages: messages[initialLocale]
+  },
+  chat: {
+    messages: chatMessages.messages
   },
   pendingActions: {},
   todos: {

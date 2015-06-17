@@ -11,6 +11,7 @@ import {RouteHandler} from 'react-router';
 import '../auth/store';
 import '../todos/store';
 import '../users/store';
+import '../chat/store';
 
 class App extends Component {
 
@@ -25,7 +26,8 @@ class App extends Component {
       pendingActions: state.pendingActionsCursor(),
       todos: state.todosCursor(),
       users: state.usersCursor(),
-      viewer: state.usersCursor().get('viewer')
+      viewer: state.usersCursor().get('viewer'),
+      chat: state.chatCursor()
     };
   }
 

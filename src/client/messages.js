@@ -27,6 +27,9 @@ export default {
       edit: 'Edit',
       save: 'Save'
     },
+    chat: {
+      title: 'Chat'
+    },
     confirmations: {
       cancelEdit: `You have unsaved changes. Are you sure you want to cancel them?`
     },
@@ -48,6 +51,7 @@ export default {
       home: 'Home',
       login: 'Login',
       me: 'Me (protected)',
+      chat: 'Chat',
       todos: 'Todos'
     },
     notFound: {

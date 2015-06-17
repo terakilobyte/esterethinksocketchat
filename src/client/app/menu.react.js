@@ -23,6 +23,7 @@ class Menu extends Component {
           {!userIsLoggedIn &&
             <li><Link to="login">{msg('menu.login')}</Link></li>
           }
+          <li><Link to="chat">{msg('menu.chat')}</Link></li>
         </ul>
       </header>
     );
