@@ -4,4 +4,4 @@ build
 node_modules
 npm-debug.log
 *.sublime-workspace
-.idea
+.idearethinkdb_data
