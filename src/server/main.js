@@ -1,13 +1,19 @@
 import config from './config';
 import express from 'express';
-import {Server} from 'http';
+import {
+  Server
+}
+from 'http';
 import io from 'socket.io';
+import r from 'rethinkdb';
+import rethink from './rethink/rethink';
+
+
 
 const app = express();
 const server = Server(app);
 const sockets = io(server);
 
-import messages from './chats';
 
 // Load API
 app.use('/api/v1', require('./api'));
@@ -23,15 +29,26 @@ app.use((err, req, res, next) => {
   res.status(500).send('500: ' + msg);
 });
 
-sockets.on('connection', (socket) => {
-  console.log('user connected');
-  socket.on('chat message', (data) => {
-    console.log('chat message with data: ', data);
-    messages.pushMessage(data);
-    socket.broadcast.emit('chat message', data);
-  })
-});
+r.connect({
+  host: 'localhost',
+  port: 28015,
+  db: config.database
+}, (err, conn) => {
+  if (err) {
+    console.log('Error connecting to rethink! ', err);
+    process.exit(0);
+  }
+  rethink.init(conn, sockets);
+  rethink.subscribe('messages');
 
-server.listen(config.port, () => {
-  console.log('Server started at port %s', config.port);
-});
+  sockets.on('connection', (socket) => {
+    console.log('user connected');
+    socket.on('chat message', (data) => {
+      rethink.insert(data, 'messages');
+    });
+  });
+
+  server.listen(config.port, () => {
+    console.log('Server started at port %s', config.port);
+  });
+})

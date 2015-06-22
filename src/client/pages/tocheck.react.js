@@ -6,7 +6,7 @@ import {msg, msgs} from '../intl/store';
 
 class ToCheck extends Component {
 
-  render() {
+  static render() {
     return (
       <div className="tocheck">
         <h3>

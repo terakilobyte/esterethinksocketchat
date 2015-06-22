@@ -1,7 +1,7 @@
 export default {
   en: {
     app: {
-      madeByHtml: `made by <a href="https://twitter.com/steida">steida</a>`
+      madeByHtml: `A hack by <a href="//twitter.com/terakilobyte" target="_blank">Terakilobyte</a>`
     },
     auth: {
       form: {
@@ -47,7 +47,7 @@ export default {
     },
     menu: {
       examples: 'Examples',
-      headerHtml: `<a href="https://github.com/steida/este">Este.js</a> App`,
+      headerHtml: `Chat`,
       home: 'Home',
       login: 'Login',
       me: 'Me (protected)',
@@ -92,17 +92,6 @@ export default {
                 video</a>? Try <b>ctrl+shift+s</b> to save app state, and <b>ctrl+shift+l</b> to load.`
         }
       ]
-    },
-    todos: {
-      add100: 'Add 100 Todos',
-      clearAll: 'Clear All',
-      emptyList: 'Nothing. Go outside and enjoy world.',
-      newTodoPlaceholder: 'What needs to be done?',
-      title: 'Todos',
-      undo: `Undo {steps, plural,
-        =0 {}
-        other {(#)}
-      }`
     },
     validation: {
       email: `Email address is not valid.`,

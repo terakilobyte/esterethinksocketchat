@@ -5,18 +5,16 @@ import Login from './pages/login.react';
 import Me from './pages/me.react';
 import NotFound from './pages/notfound.react';
 import React from 'react';
-import Todos from './pages/todos.react';
 import Chat from './pages/chat.react';
 import {DefaultRoute, NotFoundRoute, Route} from 'react-router';
 
 export default (
   <Route handler={App} path="/">
-    <DefaultRoute handler={Home} name="home" />
+    <DefaultRoute handler={Chat} name="chat" />
     <NotFoundRoute handler={NotFound} name="not-found" />
     <Route handler={Examples} name="examples" />
     <Route handler={Login} name="login" />
     <Route handler={Me} name="me" />
-    <Route handler={Todos} name="todos" />
-    <Route handler={Chat} name="chat" />
+    <Route handler={Home} name="home" />
   </Route>
 );

@@ -9,7 +9,6 @@ import {RouteHandler} from 'react-router';
 
 // Remember to import all app stores here.
 import '../auth/store';
-import '../todos/store';
 import '../users/store';
 import '../chat/store';
 
@@ -23,8 +22,6 @@ class App extends Component {
   getState() {
     return {
       auth: state.authCursor(),
-      pendingActions: state.pendingActionsCursor(),
-      todos: state.todosCursor(),
       users: state.usersCursor(),
       viewer: state.usersCursor().get('viewer'),
       chat: state.chatCursor()
@@ -47,7 +44,7 @@ class App extends Component {
   render() {
     return (
       <div className="page">
-        <Menu viewer={this.state.viewer} />
+        <Menu />
         <RouteHandler {...this.state} />
         <Footer />
       </div>

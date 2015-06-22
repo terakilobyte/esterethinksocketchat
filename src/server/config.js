@@ -6,6 +6,7 @@ nconf.env('__');
 
 var config = {
   appLocales: ['en', 'fr'],
+  database: 'chats',
   defaultLocale: 'en',
   googleAnalyticsId: 'UA-XXXXXXX-X',
   isProduction: process.env.NODE_ENV === 'production',
